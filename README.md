@@ -92,3 +92,4 @@ Scope: First this would be used by individuals hosting a party, then this could 
 
 # Wireframes
 
+![wireframe-sketch](https://user-images.githubusercontent.com/68600865/159197315-93ca3771-cc8e-4fc2-b81f-7481267ee4c5.jpg)
