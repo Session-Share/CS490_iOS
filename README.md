@@ -94,9 +94,11 @@ Scope: First this would be used by individuals hosting a party, then this could 
 
 ![wireframe-sketch](https://user-images.githubusercontent.com/68600865/159197315-93ca3771-cc8e-4fc2-b81f-7481267ee4c5.jpg)
 
-# Network Requests
+# Schemas
 
-Model: Room
+###  Models
+
+ Model: Room
 
 | Property | Type | Description |
 | --------|--------|--------|
@@ -111,16 +113,58 @@ Model: Room
 | isPlaying | Boolean | Toggles play/pause |
 
 
+Model: Song
 
+| Property | Type | Description |
+| --------|--------|--------|
+| Song ID | String | Song identifier to give to Spotify |
+| Song Name | String | Name of the song |
+| Song Artist | String | Artist of the song |
+| Album Art | Image | Album art of the song |
+| Likes Count | Number | Number of likes for a song |
+| Dislikes Count | Number | Number of dislikes for a song |
 
+###  Networking 
 
+* Login/Join Screen
+    * (Create/POST) Join the room
+        ```
+        room = findRooms(input) 
+        if (room is null)
+            Print message
+        else
+            SegueToNextStoryboard()
+        ```
+    * (Create/POST) Link Spotify account and create room
+        ```
+        token = signInToSpotify()
+        if (token is not valid)
+            Print message
+        else
+            SegueToNextStoryboard()
+        ```
+* Session Screen
 
+    * (Create/POST) Create a Like/Dislike for a given song in the queue
+        ```
+        if action is like 
+            setSongLikes(room, song_input, like)
+        else
+            setSongLikes(room, song_input, dislike)
+        ```
+    *  (Read/GET) Get the (songs in the) queue
+        ```
+            return getSongs(room)
+        ```
+* Song Request Screen
 
-
-
-
-
-
-
-
+    * (Create/POST) Request to add a given song to the queue
+        ```
+        song = Spotify.findSong(input)
+        addSong(room, Song)
+        ```
+    * (Read/GET) Search for a songs and get the results
+        ```
+        return Spotify.getSongs(input)
+        ```
 
