@@ -93,3 +93,34 @@ Scope: First this would be used by individuals hosting a party, then this could 
 # Wireframes
 
 ![wireframe-sketch](https://user-images.githubusercontent.com/68600865/159197315-93ca3771-cc8e-4fc2-b81f-7481267ee4c5.jpg)
+
+# Network Requests
+
+Model: Room
+
+| Property | Type | Description |
+| --------|--------|--------|
+| Host | String | Name of the host |
+| Jammers | Array of Strings | Names of Jammers|
+| Auth Key | String | Token to be used with the Spotify API|
+| Room Code | String | Unique string that identifies the room|
+| Songs | Array of our custom data type| List of songs in the queue|
+| Current Song | String | Current song that is being played |
+| Current Song Progress| Time | Track song progress |
+| Duration | Time | Time since session began |
+| isPlaying | Boolean | Toggles play/pause |
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
