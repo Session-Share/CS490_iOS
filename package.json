@@ -1,0 +1,21 @@
+{
+    "name": "JammerzMusicSessions",
+    "description": "Dynamic Song Queue",
+    "version": "0.0.1",
+    "private": true,
+    "dependencies": {
+        "express": "^3.21.2",
+        "socket.io": "^4.4.1"
+    },
+    "main": "index.js",
+    "scripts": {
+        "test": "node index.js",
+        "start": "node index.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Session-Share/CS490_iOS"
+    },
+    "author": "theboys",
+    "license": "undefined"
+}
