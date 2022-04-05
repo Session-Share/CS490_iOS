@@ -1,5 +1,7 @@
 # Session Share
 
+<img src="localtunneldemo.gif" width=250><br>
+
 ## Description
 
 Session Share is an app to create vote-driven dynamic spotify queues that can be accessed by anyone with an invite. 
