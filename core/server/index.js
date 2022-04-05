@@ -1,7 +1,7 @@
 // Import the express module
-var express = require('express');
+const express = require('express');
 // Create a new instance of express
-var app = express();
+const app = express();
 const http = require('http');
 const server = http.createServer(app);
 const { Server } = require("socket.io");
@@ -11,18 +11,14 @@ var path = require('path');
 // Set port
 const port = 8080;
 
-// Import the 'Main' file of the program
-// var main = require('./filePath')
+const loginRouter = require('./routes/loginScreenRoutes');
+const sessionRouter = require('./routes/sessionScreenRoutes');
+const requestRouter = require('./routes/songRequestRoutes');
 
-
-// Create a Node.js based http server on port 8080 (can be mapped to IP Address)
-// var server = require('http').createServer(app).listen(process.env.PORT || 8080);
-
-// Create a Socket.IO server and attach to http server
-// var io = require('socket.io').listen(server);
-
-// Reduce logging output of Socket.IO
-// io.set('log level', 1);
+app.use(express.json());
+app.use('/api/login', loginRouter);
+app.use('/api/session', sessionRouter);
+app.use('/api/request', requestRouter);
 
 io.on('connection', (socket) => {
   console.log('a user connected');
