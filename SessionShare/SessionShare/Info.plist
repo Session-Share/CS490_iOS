@@ -6,19 +6,15 @@
 	<array>
 		<dict>
 			<key>CFBundleURLName</key>
-			<!-- Bundle name on Spotify -->
 			<string>com.cs490.sessionshare</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<!-- Redirect URI on Spotify -->
 				<string>localhost:8080/</string>
 			</array>
 		</dict>
 	</array>
 	<key>LSApplicationQueriesSchemes</key>
-	<array>
-		<string>spotify</string>
-	</array>
+	<string>spotify</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
