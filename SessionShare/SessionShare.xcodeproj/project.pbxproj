@@ -18,6 +18,7 @@
 		BB289D80280215CE00D5D312 /* SessionShareUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB289D7F280215CE00D5D312 /* SessionShareUITestsLaunchTests.swift */; };
 		BB7713302802275800DAFA99 /* SpotifyiOS.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB77132F2802275800DAFA99 /* SpotifyiOS.xcframework */; };
 		BB7713322802311700DAFA99 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB7713312802311700DAFA99 /* AVFoundation.framework */; };
+		BBDBD9FA28033C6F00CB4CEF /* joinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDBD9F928033C6F00CB4CEF /* joinViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,7 @@
 		BB77132F2802275800DAFA99 /* SpotifyiOS.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = SpotifyiOS.xcframework; path = "../../ios-sdk-master/SpotifyiOS.xcframework"; sourceTree = "<group>"; };
 		BB7713312802311700DAFA99 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		BB771333280232A100DAFA99 /* SessionShare-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SessionShare-Bridging-Header.h"; sourceTree = "<group>"; };
+		BBDBD9F928033C6F00CB4CEF /* joinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = joinViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +114,7 @@
 				BB289D60280215CA00D5D312 /* LoginViewController.swift */,
 				BB771333280232A100DAFA99 /* SessionShare-Bridging-Header.h */,
 				BB289D62280215CA00D5D312 /* Main.storyboard */,
+				BBDBD9F928033C6F00CB4CEF /* joinViewController.swift */,
 				BB289D65280215CD00D5D312 /* Assets.xcassets */,
 				BB289D67280215CD00D5D312 /* LaunchScreen.storyboard */,
 				BB289D6A280215CD00D5D312 /* Info.plist */,
@@ -278,6 +281,7 @@
 			files = (
 				BB289D61280215CA00D5D312 /* LoginViewController.swift in Sources */,
 				BB289D5D280215CA00D5D312 /* AppDelegate.swift in Sources */,
+				BBDBD9FA28033C6F00CB4CEF /* joinViewController.swift in Sources */,
 				BB289D5F280215CA00D5D312 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

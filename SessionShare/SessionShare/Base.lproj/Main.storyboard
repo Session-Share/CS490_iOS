@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="5N9-cd-Ef0">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
@@ -8,18 +8,18 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--LoginScreen-->
+        <!--creeateLoginScreen-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController title="LoginScreen" id="BYZ-38-t0r" customClass="LoginViewController" customModule="SessionShare" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="creeateLoginScreen" id="BYZ-38-t0r" customClass="LoginViewController" customModule="SessionShare" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lPY-Wj-Bgr">
-                                <rect key="frame" x="120" y="433" width="174" height="40"/>
+                                <rect key="frame" x="120" y="439" width="174" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="mFa-Pg-aKQ"/>
+                                    <constraint firstAttribute="height" constant="40" id="ffX-GQ-0Fb"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Login To Spotify">
@@ -29,10 +29,18 @@
                                     <action selector="loginToSpotify:" destination="BYZ-38-t0r" eventType="touchUpInside" id="f3g-Nj-v74"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Room Code" textAlignment="center" minimumFontSize="18" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="z2c-VU-bHr">
-                                <rect key="frame" x="120" y="343" width="174" height="40"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="center" minimumFontSize="18" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="z2c-VU-bHr">
+                                <rect key="frame" x="120" y="349" width="174" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="Ygo-0g-iha"/>
+                                    <constraint firstAttribute="height" constant="40" id="UCk-pf-L9P"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Spotify email" textAlignment="center" minimumFontSize="18" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="YXl-wt-Yf7">
+                                <rect key="frame" x="85" y="259" width="244" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="WzX-kA-9Ml"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -41,18 +49,60 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="lPY-Wj-Bgr" secondAttribute="trailing" constant="120" id="6lU-1d-ZMx"/>
-                            <constraint firstItem="lPY-Wj-Bgr" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="120" id="9j7-ky-RnH"/>
-                            <constraint firstItem="z2c-VU-bHr" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="120" id="RbG-iJ-81m"/>
-                            <constraint firstItem="lPY-Wj-Bgr" firstAttribute="top" secondItem="z2c-VU-bHr" secondAttribute="bottom" constant="50" id="Vog-Ww-9CC"/>
-                            <constraint firstItem="z2c-VU-bHr" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="299" id="bTu-7X-Ycd"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="z2c-VU-bHr" secondAttribute="trailing" constant="120" id="biB-XQ-5qS"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="z2c-VU-bHr" secondAttribute="trailing" constant="120" id="B8X-X4-fNh"/>
+                            <constraint firstItem="YXl-wt-Yf7" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="85" id="W8B-iz-A0r"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="lPY-Wj-Bgr" secondAttribute="trailing" constant="120" id="WQT-ly-8kS"/>
+                            <constraint firstItem="lPY-Wj-Bgr" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="120" id="Z0O-Nb-ZnF"/>
+                            <constraint firstItem="z2c-VU-bHr" firstAttribute="top" secondItem="YXl-wt-Yf7" secondAttribute="bottom" constant="50" id="Zp1-DZ-EBp"/>
+                            <constraint firstItem="z2c-VU-bHr" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="120" id="bAy-tZ-PMF"/>
+                            <constraint firstItem="lPY-Wj-Bgr" firstAttribute="top" secondItem="z2c-VU-bHr" secondAttribute="bottom" constant="50" id="du3-2s-yBA"/>
+                            <constraint firstItem="YXl-wt-Yf7" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="215" id="j5e-DL-KTv"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="YXl-wt-Yf7" secondAttribute="trailing" constant="85" id="sty-60-5nl"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Create Session" id="VLY-zW-SlT"/>
+                    <connections>
+                        <outlet property="spotifyPassword" destination="z2c-VU-bHr" id="GDy-cR-Kue"/>
+                        <outlet property="spotifyUsername" destination="YXl-wt-Yf7" id="8lb-gZ-CjI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="18.840579710144929" y="93.75"/>
+            <point key="canvasLocation" x="-223" y="-188"/>
+        </scene>
+        <!--joinLoginScreen-->
+        <scene sceneID="nGz-WA-Nb4">
+            <objects>
+                <viewController title="joinLoginScreen" id="od7-z5-uwg" customClass="joinViewController" customModule="SessionShare" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Jpi-1h-APA">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="EiE-Qz-OwV"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Join Session" id="GvL-iY-Chz"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7Rz-nw-h6L" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-222" y="612"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="fOs-ac-VKs">
+            <objects>
+                <tabBarController id="5N9-cd-Ef0" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="lhU-34-UNZ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="od7-z5-uwg" kind="relationship" relationship="viewControllers" id="GVJ-nk-vCK"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="tVG-Qz-YuF"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Bew-Vd-ajM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1117" y="310"/>
         </scene>
     </scenes>
     <resources>

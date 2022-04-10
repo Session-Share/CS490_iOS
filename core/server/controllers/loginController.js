@@ -40,12 +40,10 @@ exports.createSession = async(req, res) => {
     var state = req.query.state || null;
     var storedState = req.cookies ? req.cookies[stateKey] : null;
 
-      console.log(state);
-    console.log(storedState);
+    console.log(state);
 
     // if (state === null || state !== storedState) {
-    if (state === null || state === null) {
-
+    if (state === null) {
       res.redirect('/#' +
       querystring.stringify({
         error: 'state_mismatch'
@@ -64,7 +62,6 @@ exports.createSession = async(req, res) => {
         },
         json: true
       };
-
       request.post(authOptions, function(error, response, body) {
         if (!error && response.statusCode === 200) {
           // No error and status = success
@@ -96,7 +93,6 @@ exports.createSession = async(req, res) => {
         }
       });
     }
-
   } catch(error) {
     console.log(error);
     // Response code (404) and message to send back if there is an error
