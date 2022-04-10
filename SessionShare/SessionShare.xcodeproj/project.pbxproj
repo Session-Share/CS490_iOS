@@ -16,7 +16,6 @@
 		BB289D74280215CE00D5D312 /* SessionShareTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB289D73280215CE00D5D312 /* SessionShareTests.swift */; };
 		BB289D7E280215CE00D5D312 /* SessionShareUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB289D7D280215CE00D5D312 /* SessionShareUITests.swift */; };
 		BB289D80280215CE00D5D312 /* SessionShareUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB289D7F280215CE00D5D312 /* SessionShareUITestsLaunchTests.swift */; };
-		BB7713302802275800DAFA99 /* SpotifyiOS.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB77132F2802275800DAFA99 /* SpotifyiOS.xcframework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,7 +49,6 @@
 		BB289D79280215CE00D5D312 /* SessionShareUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SessionShareUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB289D7D280215CE00D5D312 /* SessionShareUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionShareUITests.swift; sourceTree = "<group>"; };
 		BB289D7F280215CE00D5D312 /* SessionShareUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionShareUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		BB77132F2802275800DAFA99 /* SpotifyiOS.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = SpotifyiOS.xcframework; path = "../../ios-sdk-master/SpotifyiOS.xcframework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,7 +56,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BB7713302802275800DAFA99 /* SpotifyiOS.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,7 +80,6 @@
 			isa = PBXGroup;
 			children = (
 				BB289D5B280215CA00D5D312 /* SessionShare */,
-				BB77132928021D3A00DAFA99 /* Frameworks */,
 				BB289D72280215CE00D5D312 /* SessionShareTests */,
 				BB289D7C280215CE00D5D312 /* SessionShareUITests */,
 				BB289D5A280215CA00D5D312 /* Products */,
@@ -129,14 +125,6 @@
 				BB289D7F280215CE00D5D312 /* SessionShareUITestsLaunchTests.swift */,
 			);
 			path = SessionShareUITests;
-			sourceTree = "<group>";
-		};
-		BB77132928021D3A00DAFA99 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				BB77132F2802275800DAFA99 /* SpotifyiOS.xcframework */,
-			);
-			path = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -379,7 +367,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -434,7 +422,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
