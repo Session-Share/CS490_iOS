@@ -16,6 +16,12 @@
 		BB289D74280215CE00D5D312 /* SessionShareTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB289D73280215CE00D5D312 /* SessionShareTests.swift */; };
 		BB289D7E280215CE00D5D312 /* SessionShareUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB289D7D280215CE00D5D312 /* SessionShareUITests.swift */; };
 		BB289D80280215CE00D5D312 /* SessionShareUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB289D7F280215CE00D5D312 /* SessionShareUITestsLaunchTests.swift */; };
+<<<<<<< HEAD
+=======
+		BB7713302802275800DAFA99 /* SpotifyiOS.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB77132F2802275800DAFA99 /* SpotifyiOS.xcframework */; };
+		BB7713322802311700DAFA99 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB7713312802311700DAFA99 /* AVFoundation.framework */; };
+		BBDBD9FA28033C6F00CB4CEF /* joinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDBD9F928033C6F00CB4CEF /* joinViewController.swift */; };
+>>>>>>> d9fb5b95751533d8448b711d0b58b1e302669fef
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +55,13 @@
 		BB289D79280215CE00D5D312 /* SessionShareUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SessionShareUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB289D7D280215CE00D5D312 /* SessionShareUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionShareUITests.swift; sourceTree = "<group>"; };
 		BB289D7F280215CE00D5D312 /* SessionShareUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionShareUITestsLaunchTests.swift; sourceTree = "<group>"; };
+<<<<<<< HEAD
+=======
+		BB77132F2802275800DAFA99 /* SpotifyiOS.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = SpotifyiOS.xcframework; path = "../../ios-sdk-master/SpotifyiOS.xcframework"; sourceTree = "<group>"; };
+		BB7713312802311700DAFA99 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		BB771333280232A100DAFA99 /* SessionShare-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SessionShare-Bridging-Header.h"; sourceTree = "<group>"; };
+		BBDBD9F928033C6F00CB4CEF /* joinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = joinViewController.swift; sourceTree = "<group>"; };
+>>>>>>> d9fb5b95751533d8448b711d0b58b1e302669fef
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +69,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+<<<<<<< HEAD
+=======
+				BB7713322802311700DAFA99 /* AVFoundation.framework in Frameworks */,
+				BB7713302802275800DAFA99 /* SpotifyiOS.xcframework in Frameworks */,
+>>>>>>> d9fb5b95751533d8448b711d0b58b1e302669fef
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -102,7 +120,9 @@
 				BB289D5C280215CA00D5D312 /* AppDelegate.swift */,
 				BB289D5E280215CA00D5D312 /* SceneDelegate.swift */,
 				BB289D60280215CA00D5D312 /* LoginViewController.swift */,
+				BB771333280232A100DAFA99 /* SessionShare-Bridging-Header.h */,
 				BB289D62280215CA00D5D312 /* Main.storyboard */,
+				BBDBD9F928033C6F00CB4CEF /* joinViewController.swift */,
 				BB289D65280215CD00D5D312 /* Assets.xcassets */,
 				BB289D67280215CD00D5D312 /* LaunchScreen.storyboard */,
 				BB289D6A280215CD00D5D312 /* Info.plist */,
@@ -127,6 +147,18 @@
 			path = SessionShareUITests;
 			sourceTree = "<group>";
 		};
+<<<<<<< HEAD
+=======
+		BB77132928021D3A00DAFA99 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BB7713312802311700DAFA99 /* AVFoundation.framework */,
+				BB77132F2802275800DAFA99 /* SpotifyiOS.xcframework */,
+			);
+			path = Frameworks;
+			sourceTree = "<group>";
+		};
+>>>>>>> d9fb5b95751533d8448b711d0b58b1e302669fef
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -260,6 +292,7 @@
 			files = (
 				BB289D61280215CA00D5D312 /* LoginViewController.swift in Sources */,
 				BB289D5D280215CA00D5D312 /* AppDelegate.swift in Sources */,
+				BBDBD9FA28033C6F00CB4CEF /* joinViewController.swift in Sources */,
 				BB289D5F280215CA00D5D312 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -452,9 +485,11 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.cs490.sessionshare;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "SessionShare/SessionShare-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -480,9 +515,11 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.cs490.sessionshare;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "SessionShare/SessionShare-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
