@@ -1,21 +1,27 @@
 // Import the express module
 const express = require('express');
-// Create a new instance of express
-const app = express();
+var cors = require('cors');
+var request = require('request'); // "Request" library
 const http = require('http');
-const server = http.createServer(app);
 const { Server } = require("socket.io");
-const io = new Server(server);
-// Import the path module
 var path = require('path');
-// Set port
+
+const app = express();
+const server = http.createServer(app);
+const io = new Server(server);
 const port = 8080;
 
 const loginRouter = require('./routes/loginScreenRoutes');
 const sessionRouter = require('./routes/sessionScreenRoutes');
 const requestRouter = require('./routes/songRequestRoutes');
 
+var corsOptions = {
+  origin: 'https://localhost:8080/',
+  optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+}
+
 app.use(express.json());
+app.use(cors());
 app.use('/api/login', loginRouter);
 app.use('/api/session', sessionRouter);
 app.use('/api/request', requestRouter);
