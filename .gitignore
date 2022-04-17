@@ -1,3 +1,5 @@
 node_modules/
 # macOS Files
 .DS_Store
+ios-sdk-master
+ios-sdk-master.zip
