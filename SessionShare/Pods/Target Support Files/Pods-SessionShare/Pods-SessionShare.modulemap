@@ -1,0 +1,6 @@
+module Pods_SessionShare {
+  umbrella header "Pods-SessionShare-umbrella.h"
+
+  export *
+  module * { export * }
+}
