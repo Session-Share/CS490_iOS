@@ -1,4 +1,5 @@
 # Session Share
+<img src="week3.gif" width=250><br>
 <img src="screen.gif" width=250><br>
 <img src="localtunneldemo.gif" width=250><br>
 
