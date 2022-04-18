@@ -1,5 +1,12 @@
 # Session Share
 <img src="week3.gif" width=250><br>
+
+Week 3 Goals:
+- [x] User can see queue page and go to add song page. 
+- [x] Fix issue of http/https in the backend
+- [ ] Add backend functionality for searching up songs
+- [ ] Add like/dislike feature
+
 <img src="screen.gif" width=250><br>
 <img src="localtunneldemo.gif" width=250><br>
 
