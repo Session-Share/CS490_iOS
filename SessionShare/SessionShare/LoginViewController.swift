@@ -6,6 +6,9 @@
 //
 
 import UIKit
+import SocketIO
+
+
 class LoginViewController: UIViewController {
 
     @IBOutlet weak var spotifyUsername: UITextField!
@@ -44,23 +47,25 @@ class LoginViewController: UIViewController {
            base url = "http://localhost:8080/api/
            Ensure that URLReques is expecting a JSON response as all the backend APIs are RESTFUL
          */
+//        let url = URL(string: "http://localhost:8080/api/login/create")!
+//        var request = URLRequest(url: url)
+//        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+//        let task = URLSession.shared.dataTask(with: url) { data, response, error in
+//            if let data = data {
+//                if let loginResponse = try? JSONDecoder().decode([loginResponse].self, from: data) {
+//                    print(loginResponse)
+//                } else {
+//                    print("Invalid Response")
+//                }
+//            } else if let error = error {
+//                print("HTTP Request Failed \(error)")
+//            }
+//        }
+//        task.resume();
         
-        let url = URL(string: "http://localhost:8080/api/login/create")!
-        var request = URLRequest(url: url)
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         
-        let task = URLSession.shared.dataTask(with: url) { data, response, error in
-            if let data = data {
-                if let loginResponse = try? JSONDecoder().decode([loginResponse].self, from: data) {
-                    print(loginResponse)
-                } else {
-                    print("Invalid Response")
-                }
-            } else if let error = error {
-                print("HTTP Request Failed \(error)")
-            }
-        }
-        task.resume();
+        
+        
     }
     
 }
