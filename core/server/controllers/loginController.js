@@ -2,6 +2,11 @@ var request = require('request'); // "Request" library
 var cors = require('cors');
 var querystring = require('querystring');
 var cookieParser = require('cookie-parser')
+const fetch = require('node-fetch');
+const fs = require('fs')
+const credentialController = require('./credentialController.js');
+
+var access_token, refresh_token;
 
 exports.loginToSpotify = async(req, res) => {
   try {
@@ -9,20 +14,14 @@ exports.loginToSpotify = async(req, res) => {
     console.log("====== Login ======");
     var state = generateRandomString(16);
     res.cookie(stateKey, state);
-    console.log(res.cookie);
     var scope = 'user-read-private user-read-email';
-    res.redirect('https://accounts.spotify.com/authorize?' + querystring.stringify({
+    await res.redirect('https://accounts.spotify.com/authorize?' + querystring.stringify({
       response_type: 'code',
       client_id: client_id,
       scope: scope,
       redirect_uri: redirect_uri,
       state: state
     }));
-    // Response code (201) and message to send back on success
-    // res.status(201).json({
-    //   status: 'call made'
-    //   // token: spotifyToken
-    // })
   } catch(error) {
     console.log("Error logging into Spotify:\n", error);
     // Response code (404) and message to send back if there is an error
@@ -32,6 +31,15 @@ exports.loginToSpotify = async(req, res) => {
   }
 } /* loginToSpotify() */
 
+exports.getTokens = async () => {
+  let data = {
+    "access_token": access_token,
+    "refresh_token": refresh_token
+  };
+  return data;
+}
+
+
 exports.createSession = async(req, res) => {
   try {
     // TODO: Create a Session
@@ -40,11 +48,9 @@ exports.createSession = async(req, res) => {
     var state = req.query.state || null;
     var storedState = req.cookies ? req.cookies[stateKey] : null;
 
-    console.log(state);
-
     // if (state === null || state !== storedState) {
     if (state === null) {
-      res.redirect('/#' +
+      await res.redirect('/#' +
       querystring.stringify({
         error: 'state_mismatch'
       }));
@@ -62,44 +68,47 @@ exports.createSession = async(req, res) => {
         },
         json: true
       };
-      request.post(authOptions, function(error, response, body) {
+      await request.post(authOptions, function(error, response, body) {
+        // No error and status = success
         if (!error && response.statusCode === 200) {
-          // No error and status = success
-          var access_token = body.access_token,
+          access_token = body.access_token;
           refresh_token = body.refresh_token;
-
+          const tokens = body.access_token + "\n" + body.refresh_token;
+          credentialController.writeTokens(tokens);
           /*
           var options = {
-            url: 'https://api.spotify.com/v1/me',
-            headers: { 'Authorization': 'Bearer ' + access_token },
-            json: true
-          };
+          url: 'https://api.spotify.com/v1/me',
+          headers: { 'Authorization': 'Bearer ' + access_token },
+          json: true
+        };
 
-          // use the access token to access the Spotify Web API
-          request.get(options, function(error, response, body) {
-            console.log(body);
-          });
-          */
-          // we can also pass the token to the browser to make requests from there
-          res.status(201).json({
-            status: 'success',
-            access_token: access_token,
-            refresh_token: refresh_token
-          });
-        } else {
-          res.status(401).json({
-            status: 'invalid_token'
-          });
-        }
+        // use the access token to access the Spotify Web API
+        request.get(options, function(error, response, body) {
+        console.log(body);
+      });
+      */
+
+      // we can also pass the token to the browser to make requests from there
+      res.status(201).json({
+        status: 'success',
+        access_token: access_token,
+        refresh_token: refresh_token
+      });
+
+    } else {
+      res.status(401).json({
+        status: 'invalid_token'
       });
     }
-  } catch(error) {
-    console.log(error);
-    // Response code (404) and message to send back if there is an error
-    res.status(404).json({
-      status: 'error'
-    })
-  }
+  });
+}
+} catch(error) {
+  console.log(error);
+  // Response code (404) and message to send back if there is an error
+  res.status(404).json({
+    status: 'error'
+  })
+}
 } /* createSession() */
 
 exports.joinSession = async(req, res) => {
