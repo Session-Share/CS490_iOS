@@ -4,7 +4,7 @@
 
 ## Description
 
-Session Share is an app to create vote-driven dynamic spotify queues that can be accessed by anyone with an invite. 
+Session Share is an app to create vote-driven dynamic spotify queues that can be accessed by anyone with an invite.
 
 A ‘host’ can link their spotify account with our app to create a new session. The host can then send an invite to their sessions and invitees are added to the session as ‘jammers’. Once connected, jammers can request for songs through the hosts’ spotify account. Each song in the queue will have a ‘like’ and ‘dislike’ button associated with it that the jammers can tap. Songs in the queue will be xdynamically reordered based on the number of likes they receive or removed from the queue entirely based on the number of dislikes they get.
 
@@ -32,7 +32,7 @@ Scope: First this would be used by individuals hosting a party, then this could 
 
 * User can create a new session as host
 
-* Jammers can join an existing session 
+* Jammers can join an existing session
 
 * Jammers can add songs to the queue
 
@@ -126,12 +126,12 @@ Model: Song
 | Likes Count | Number | Number of likes for a song |
 | Dislikes Count | Number | Number of dislikes for a song |
 
-###  Networking 
+###  Networking
 
 * Login/Join Screen
     * (Create/POST) Join the room
         ```
-        room = findRooms(input) 
+        room = findRooms(input)
         if (room is null)
             Print message
         else
@@ -149,7 +149,7 @@ Model: Song
 
     * (Create/POST) Create a Like/Dislike for a given song in the queue
         ```
-        if action is like 
+        if action is like
             setSongLikes(room, song_input, like)
         else
             setSongLikes(room, song_input, dislike)
@@ -165,8 +165,7 @@ Model: Song
         song = Spotify.findSong(input)
         addSong(room, Song)
         ```
-    * (Read/GET) Search for a songs and get the results
+    * (Create/POST) Search for a songs and get the results
         ```
         return Spotify.getSongs(input)
         ```
-

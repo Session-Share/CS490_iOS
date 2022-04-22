@@ -26,7 +26,7 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 app.use('/api/login/', loginRouter);
-app.use('/api/session', sessionRouter);
+// app.use('/api/session', sessionRouter);
 app.use('/api/request', requestRouter);
 
 
@@ -80,11 +80,40 @@ app.get('/', async (req, res) => {
   // console.log("Read data = \n", data);
 });
 
+// Route to get tokens upon successful Spotify Auth
 app.get('/api/success', async (req, res) => {
     const data = credentialController.readTokens();
     const tokens = data.split("\n");
     access_token = tokens[0];
     refresh_token = tokens[1];
     console.log("\naccess_token:", access_token);
-    console.log("\refresh_token:", refresh_token);
+    console.log("\nrefresh_token:", refresh_token);
+    requestSongDemoCode()
 });
+
+
+function requestSongDemoCode() {
+  // Let express know what type of request to expect
+  var options = {
+    method: "POST",
+    headers : {
+         "Content-Type": "application/json"
+    }
+  };
+  // The actual search parameters
+  const search = {
+      songName: "Is it true",
+      access_token: access_token
+  };
+
+  // The search parameters must be appended to the body of the request
+  options.body = JSON.stringify(search);
+
+  // Call the API to look for the song
+  fetch("https://localhost:8080/api/request/search", options)
+  .then( (response) => {
+    // Use returned results as desired
+    console.log("success")} )
+  .catch( (error) => {
+    console.log("Error:\n", error)} );
+}
