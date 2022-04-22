@@ -22,10 +22,10 @@ const loginRouter = require('./routes/loginScreenRoutes');
 const sessionRouter = require('./routes/sessionScreenRoutes');
 const requestRouter = require('./routes/songRequestRoutes');
 const app = express();
+
 app.use(express.json());
 app.use(cors());
 app.use('/api/login/', loginRouter);
-// app.use('/api/login/create', loginController.loginToSpotify);
 app.use('/api/session', sessionRouter);
 app.use('/api/request', requestRouter);
 
@@ -62,20 +62,29 @@ io.on('connection', async (socket) => {
   }
 });
 
-server.listen(port, () => {
-  console.log('listening on 8080');
-
-});
-// Function to initialise our variables
 function init () {
   songsQueue = [];
   songsCount = 0;
+  access_token = -1;
+  refresh_token = -1
 }
 init();
 
+
+server.listen(port, () => {
+  console.log('listening on 8080');
+});
+
 app.get('/', async (req, res) => {
   await loginController.loginToSpotify(req, res);
-  const data = credentialController.readTokens();
-  access_token = data[0];
-  refresh_token = data[1];
+  // console.log("Read data = \n", data);
+});
+
+app.get('/api/success', async (req, res) => {
+    const data = credentialController.readTokens();
+    const tokens = data.split("\n");
+    access_token = tokens[0];
+    refresh_token = tokens[1];
+    console.log("access_token:", access_token);
+    console.log("\nrefresh_token:", refresh_token);
 });

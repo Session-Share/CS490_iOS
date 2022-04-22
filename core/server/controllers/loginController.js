@@ -10,11 +10,12 @@ var access_token, refresh_token;
 
 exports.loginToSpotify = async(req, res) => {
   try {
-    // TODO: Code to login to spotify and get token
-    console.log("====== Login ======");
+
+    console.log("Attempting to Login ");
     var state = generateRandomString(16);
     res.cookie(stateKey, state);
     var scope = 'user-read-private user-read-email';
+
     await res.redirect('https://accounts.spotify.com/authorize?' + querystring.stringify({
       response_type: 'code',
       client_id: client_id,
@@ -31,25 +32,16 @@ exports.loginToSpotify = async(req, res) => {
   }
 } /* loginToSpotify() */
 
-exports.getTokens = async () => {
-  let data = {
-    "access_token": access_token,
-    "refresh_token": refresh_token
-  };
-  return data;
-}
-
-
 exports.createSession = async(req, res) => {
   try {
-    // TODO: Create a Session
-    console.log("====== Create ======");
+
+    console.log("Callback Triggered");
     var code = req.query.code || null;
     var state = req.query.state || null;
     var storedState = req.cookies ? req.cookies[stateKey] : null;
 
-    // if (state === null || state !== storedState) {
     if (state === null) {
+      console.log("Spotify Auth failed");
       await res.redirect('/#' +
       querystring.stringify({
         error: 'state_mismatch'
@@ -75,18 +67,11 @@ exports.createSession = async(req, res) => {
           refresh_token = body.refresh_token;
           const tokens = body.access_token + "\n" + body.refresh_token;
           credentialController.writeTokens(tokens);
-          /*
-          var options = {
-          url: 'https://api.spotify.com/v1/me',
-          headers: { 'Authorization': 'Bearer ' + access_token },
-          json: true
-        };
-
-        // use the access token to access the Spotify Web API
-        request.get(options, function(error, response, body) {
-        console.log(body);
-      });
-      */
+          fetch("https://localhost:8080/api/success").
+            then( (response) => {
+              console.log(response)} )
+            .catch( (error) => {
+              console.log(error)} );
 
       // we can also pass the token to the browser to make requests from there
       res.status(201).json({
@@ -111,23 +96,6 @@ exports.createSession = async(req, res) => {
 }
 } /* createSession() */
 
-exports.joinSession = async(req, res) => {
-  try {
-    // TODO: Code to join an existing Session
-
-    // const roomID = req.params.roomID;
-    // Response code (201) and message to send back on success
-    res.status(201).json({
-      status: 'success'
-    })
-  } catch(error) {
-    console.log(error);
-    // Response code (404) and message to send back if there is an error
-    res.status(404).json({
-      status: 'error'
-    })
-  }
-} /* joinSession() */
 
 var client_id = '57ecd291e22142faab9a2841c92d9236'; // Sid's client id
 var client_secret = '36635a0faee14c4c86e165ebefe44626'; // Sid's secret

@@ -1,21 +1,20 @@
 const fs = require('fs');
 var path = require('path');
 
-exports.writeTokens = (tokens) => {
-  fs.writeFileSync('./controllers/credentials.txt', tokens, { flag: 'w+' }, err => {
-    if (err) {
-      console.error(err);
-      return;
-    }
-  });
+exports.writeTokens = async (tokens) => {
+
+  try {
+    fs.writeFileSync('./controllers/credentials.txt', tokens, { flag: 'w+', encoding: 'utf8' });
+  } catch (err) {
+    console.log("Error Writing tokens to file:\n", err);
+  }
 }
 
 exports.readTokens = (tokens) => {
   try {
     const data = fs.readFileSync('./controllers/credentials.txt', 'utf8');
-    const tokens = data.split(" ");
-    return tokens;
+    return data;
   } catch (err) {
-    console.error(err);
+    console.error("Error Reading tokens from file:\n", err);
   }
 }
