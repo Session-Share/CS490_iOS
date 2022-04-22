@@ -7,6 +7,5 @@ const loginController = require('../controllers/loginController.js');
 router.route("/create").get(loginController.loginToSpotify);
 // route /api/login/callback
 router.route("/callback").get(loginController.createSession);
-router.route("/join").post(loginController.joinSession);
 
 module.exports = router;

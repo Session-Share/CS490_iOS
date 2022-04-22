@@ -85,6 +85,6 @@ app.get('/api/success', async (req, res) => {
     const tokens = data.split("\n");
     access_token = tokens[0];
     refresh_token = tokens[1];
-    console.log("access_token:", access_token);
-    console.log("\nrefresh_token:", refresh_token);
+    console.log("\naccess_token:", access_token);
+    console.log("\refresh_token:", refresh_token);
 });
