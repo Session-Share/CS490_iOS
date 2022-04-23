@@ -1,6 +1,7 @@
 const fetch = require('node-fetch');
 const SpotifyWebApi = require('spotify-web-api-node');
 const Spotify = require('spotify-web-api-js');
+var XMLHttpRequest = require('xhr2');
 
 const spotifyApi = new SpotifyWebApi({
   clientId: '57ecd291e22142faab9a2841c92d9236',
@@ -20,13 +21,14 @@ exports.addSong = async(req, res) => {
     const access_token = req.body.access_token;
     // Set token for the Spotify API
     playbackSpotifyApi.setAccessToken(access_token);
+    // playbackSpotifyApi.play();
 
     var options = {
       method: "POST",
       headers : {
-           "Content-Type": "application/json",
-           "Accept": "application/json",
-           "Authorization": `Bearer ${access_token}`
+        "Authorization": 'Bearer ' + access_token,
+        "Content-Type": "application/json",
+        "Accept": "application/json"
       }
     };
 
@@ -39,13 +41,38 @@ exports.addSong = async(req, res) => {
     //   }
     // })
     const encodedURI = encodeURIComponent(songUri);
-    const url = baseUri + `/me/player/queue?${encodedURI}`
+    const url = baseUri + '/me/player/queue?uri=' + encodedURI
     console.log("\n\n",JSON.stringify(options));
+
     console.log(JSON.stringify(url));
 
-    fetch(url, options)
+    var request = new XMLHttpRequest();
+    request.open("POST", url);
+    request.setRequestHeader('Authorization', 'Bearer ' + access_token);
+    request.setRequestHeader('Content-Type', 'application/json');
+    request.onreadystatechange = function () {
+        if (request.readyState === 4) {
+          var data = null;
+          try {
+            data = request.responseText ? JSON.parse(request.responseText) : '';
+          } catch (e) {
+            console.error(e);
+          }
+
+          if (req.status >= 200 && req.status < 300) {
+            console.log(data);;
+          } else {
+            console.log("failed\n", data);
+          }
+        }
+      };
+
+    request.send(null);
+
+
+  /*fetch(url, options)
     .then ( function (response) {
-      console.log(response);
+      console.log(JSON.stringify(response));
       if (response.status == '204') {
         res.status(201).json({
           status: 'success'
@@ -61,7 +88,7 @@ exports.addSong = async(req, res) => {
       res.status(404).json({
         status: 'error'
       })
-    });
+    });*/
   } catch(error) {
     // Response code (404) and message to send back if there is an error
     console.log("Error adding song:\n", error);

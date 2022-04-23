@@ -74,6 +74,23 @@ function init () {
 }
 init();
 
+// sort comparer function to sort by descending order
+function getSortOrder(prop) {
+  return function(a, b) {
+      if (a[prop] > b[prop]) {
+          return -1;
+      } else if (a[prop] < b[prop]) {
+          return 1;
+      }
+      return 0;
+  }
+} /* getSortOrder() */
+
+// function to reorder the queue based on likes
+function reorderQueue() {
+  songsQueue.sort(getSortOrder("likes"));
+} /* reorderQueue() */
+
 
 server.listen(port, () => {
   console.log('listening on 8080');
@@ -93,10 +110,34 @@ app.get('/api/success', async (req, res) => {
     console.log("\naccess_token:", access_token);
     // console.log("\nrefresh_token:", refresh_token);
     spotifyApi.setAccessToken(access_token);
-    addSongDemoCode();
-    // requestSongDemoCode();
 });
 
+
+// Route to add a song to the queue
+app.post('/api/add', async (req, res) => {
+  try {
+  var params = req.body.params ? JSON.parse(req.body.params) : ''; // Save params if any
+  const song = {
+    "songUri": req.body.songUri,
+    "songName": req.body.songName,
+    "songArtist" : req.body.songArtist,
+    "params": params,
+    "likes": 0
+  };
+  console.log("Adding to queue:\n", JSON.stringify(song));
+  songsQueue.push(song);
+  reorderQueue();
+  res.status(201).json({
+    status: "success",
+    songsQueue: songsQueue
+  });
+  } catch (error) {
+    console.log(error);
+    res.status(404).json({
+      status: "error",
+    });
+  }
+});
 
 // Route to resume playing song
 app.get('/api/play', async (req, res) => {
@@ -143,11 +184,6 @@ app.get('/api/previous', async (req, res) => {
 });
 
 
-
-
-
-
-
 function requestSongDemoCode() {
   // Let express know what type of request to expect
   var options = {
@@ -176,28 +212,29 @@ function requestSongDemoCode() {
 
 
 function addSongDemoCode() {
-  // Let express know what type of request to expect
+
   var options = {
     method: "POST",
     headers : {
          "Content-Type": "application/json",
-         "Authorization": `Bearer ${access_token} `
+         // 'Authorization': 'Bearer ' + access_token
     }
   };
   // The actual search parameters
-  const search = {
-      songUri: "spotify:track:6RZmhpvukfyeSURhf4kZ0d",
-      access_token: access_token
+  var search = {
+      songUri: "spotify:track:6RZmhpvukfyeSURhf4kZ0d", // Spotify uri for the track is required
+      songName: "Is it True", // song name is required
+      songArtist: "Tame Impala" // song artist is required
   };
 
-  // The search parameters must be appended to the body of the request
+  // The search parameters must be appended to the BODY of the request
   options.body = JSON.stringify(search);
 
-  // Call the API to look for the song
-  fetch("https://localhost:8080/api/request/add", options)
+  fetch("https://localhost:8080/api/add", options) // call the api
   .then( (response) => {
     // Use returned results as desired
     console.log("received:\n", response)} )
   .catch( (error) => {
     console.log("Error:\n", error)} );
-} /* requestSongDemoCode() */
+
+} /* addSongDemoCode() */
