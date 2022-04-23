@@ -8,7 +8,7 @@ exports.getSongs = async(req, res) => {
       // queue: musicQueue
     })
   } catch(error) {
-    console.log("Error retrieving songs:\n", error);
+    console.log("Error logging into Spotify:\n", error);
     // Response code (404) and message to send back if there is an error
     res.status(404).json({
       status: 'error'
