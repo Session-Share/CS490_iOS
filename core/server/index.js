@@ -139,6 +139,53 @@ app.post('/api/add', async (req, res) => {
   }
 });
 
+app.post('/api/like', async (req, res) => {
+
+  try {
+    const songUri =  req.body.songUri;
+    // Loop to look for the song in the queue
+    for (let index in songsQueue) {
+      if (songUri == songsQueue[index].songUri) {
+        songsQueue[index].likes = songsQueue[index].likes + 1;
+      }
+    }
+    reorderQueue(); // reorder the queue
+    res.status(201).json({
+      status: "success",
+      songsQueue: songsQueue
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(404).json({
+      status: "error",
+    });
+  }
+}); // https://localhost:8080/api/like
+
+
+app.post('/api/dislike', async (req, res) => {
+
+  try {
+    const songUri =  req.body.songUri;
+    // Loop to look for the song in the queue
+    for (let index in songsQueue) {
+      if (songUri == songsQueue[index].songUri) {
+        songsQueue[index].likes = songsQueue[index].likes - 1;
+      }
+    }
+    reorderQueue(); // reorder the queue
+    res.status(201).json({
+      status: "success",
+      songsQueue: songsQueue
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(404).json({
+      status: "error",
+    });
+  }
+}); // https://localhost:8080/api/dislike
+
 // Route to resume playing song
 app.get('/api/play', async (req, res) => {
   spotifyApi.play()
