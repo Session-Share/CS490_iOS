@@ -11,14 +11,16 @@ class SearchViewController: UIViewController {
 
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
-    let data = ["Artist 1", "Artist 2", "Artist 3"]
-    var filteredData: [String]!
+    let data = [["As It Was", "Harry Styles"], ["First Class", "Jack Harlow"], ["Heat Waves", "Glass Animals"], ["Thousand Miles", "The Kid LAROI"], ["INDUSTRY BABY", "Lil Nas X"], ["Heat Waves", "Glass Animals"], ["Stay", "Justin Beiber"]]
+    var filteredData: [[String]]!
     override func viewDidLoad() {
         super.viewDidLoad()
         filteredData = data
         tableView.delegate = self
         tableView.dataSource = self
         searchBar.delegate = self
+    
+        tableView.reloadData()
     }
     
 
@@ -31,9 +33,18 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "searchCell", for: indexPath)
-        cell.textLabel?.text = filteredData[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "searchCell", for: indexPath) as! SearchCellTableViewCell
+        cell.songLabel.text = filteredData[indexPath.row][0]
+        cell.artistLabel.text = filteredData[indexPath.row][1]
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = QueueViewController()
+        vc.addSong(song: filteredData[indexPath.row][0], artist: filteredData[indexPath.row][1])
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
+        self.dismiss(animated: true, completion: nil)
+        
     }
 }
 
@@ -44,11 +55,21 @@ extension SearchViewController: UISearchBarDelegate {
         {
             filteredData = data
         }
-        for word in data {
+        for i in data {
+            let word = i[0]
             if word.uppercased().contains(searchText.uppercased()) {
-                filteredData.append(word)
+                filteredData.append(i)
             }
         }
         self.tableView.reloadData()
+    }
+}
+
+extension SearchViewController: URLSessionDelegate {
+    public func urlSession(_ session: URLSession, didReceive challenge: URLAuthenticationChallenge, completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void) {
+       //Trust the certificate even if not valid
+       let urlCredential = URLCredential(trust: challenge.protectionSpace.serverTrust!)
+
+       completionHandler(.useCredential, urlCredential)
     }
 }

@@ -25,7 +25,6 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func loginToSpotify(_ sender: Any) {
-        
         if ((spotifyPassword == nil) || (spotifyUsername == nil)) {
             print("Error No Password or Username")
             
@@ -38,35 +37,30 @@ class LoginViewController: UIViewController {
             self.present(uialert, animated: true, completion: nil);
             return;
         }
-        print("Attempting to login");
-
-        // TODO: Make call to login backend.
-        // Maybe segue to the session storyboard on success
-
-        /* Format to make a call to the backend
-           base url = "http://localhost:8080/api/
-           Ensure that URLReques is expecting a JSON response as all the backend APIs are RESTFUL
-         */
-//        let url = URL(string: "http://localhost:8080/api/login/create")!
-//        var request = URLRequest(url: url)
-//        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-//        let task = URLSession.shared.dataTask(with: url) { data, response, error in
-//            if let data = data {
-//                if let loginResponse = try? JSONDecoder().decode([loginResponse].self, from: data) {
-//                    print(loginResponse)
-//                } else {
-//                    print("Invalid Response")
-//                }
-//            } else if let error = error {
-//                print("HTTP Request Failed \(error)")
-//            }
-//        }
-//        task.resume();
-        
-        
+//        print("Attempting to login");
+//
+//        let url = URL(string: "https://localhost:8080/api/login/create")!
+//
+//        let session = URLSession(configuration: URLSessionConfiguration.default, delegate: self, delegateQueue: nil)
+//
+//        let task = session.dataTask(with: url, completionHandler: { (data, response, error) in
+//            print(response!)
+//        })
+//
+//        task.resume()
+//
         
         
     }
     
+}
+
+extension LoginViewController: URLSessionDelegate {
+    public func urlSession(_ session: URLSession, didReceive challenge: URLAuthenticationChallenge, completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void) {
+       //Trust the certificate even if not valid
+       let urlCredential = URLCredential(trust: challenge.protectionSpace.serverTrust!)
+
+       completionHandler(.useCredential, urlCredential)
+    }
 }
 

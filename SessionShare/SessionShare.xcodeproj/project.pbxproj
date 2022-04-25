@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		92166BA8DCF488F24A1BC5D3 /* libPods-SessionShare.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 495FC337EA85B99526A924B5 /* libPods-SessionShare.a */; };
 		9D1C7EB428036FCF007330EB /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1C7EB328036FCF007330EB /* SearchViewController.swift */; };
+		9D30AE4B2816310E0011E171 /* QueueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D30AE4A2816310E0011E171 /* QueueViewController.swift */; };
+		9D30AE4D2816D9840011E171 /* SearchCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D30AE4C2816D9840011E171 /* SearchCellTableViewCell.swift */; };
+		9D30AE4F2816E2310011E171 /* QueueSongTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D30AE4E2816E2310011E171 /* QueueSongTableViewCell.swift */; };
 		BB289D5D280215CA00D5D312 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB289D5C280215CA00D5D312 /* AppDelegate.swift */; };
 		BB289D5F280215CA00D5D312 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB289D5E280215CA00D5D312 /* SceneDelegate.swift */; };
 		BB289D61280215CA00D5D312 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB289D60280215CA00D5D312 /* LoginViewController.swift */; };
@@ -42,6 +45,9 @@
 		495FC337EA85B99526A924B5 /* libPods-SessionShare.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SessionShare.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		88EAB20B1D1B62410FE9741E /* Pods-SessionShare.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SessionShare.debug.xcconfig"; path = "Target Support Files/Pods-SessionShare/Pods-SessionShare.debug.xcconfig"; sourceTree = "<group>"; };
 		9D1C7EB328036FCF007330EB /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		9D30AE4A2816310E0011E171 /* QueueViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueViewController.swift; sourceTree = "<group>"; };
+		9D30AE4C2816D9840011E171 /* SearchCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCellTableViewCell.swift; sourceTree = "<group>"; };
+		9D30AE4E2816E2310011E171 /* QueueSongTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueSongTableViewCell.swift; sourceTree = "<group>"; };
 		BB289D59280215CA00D5D312 /* SessionShare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SessionShare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB289D5C280215CA00D5D312 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BB289D5E280215CA00D5D312 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -131,11 +137,14 @@
 				BB289D5E280215CA00D5D312 /* SceneDelegate.swift */,
 				BB289D60280215CA00D5D312 /* LoginViewController.swift */,
 				BB289D62280215CA00D5D312 /* Main.storyboard */,
+				9D30AE4E2816E2310011E171 /* QueueSongTableViewCell.swift */,
+				9D30AE4C2816D9840011E171 /* SearchCellTableViewCell.swift */,
 				BBDBD9F928033C6F00CB4CEF /* joinViewController.swift */,
 				BB289D65280215CD00D5D312 /* Assets.xcassets */,
 				BB289D67280215CD00D5D312 /* LaunchScreen.storyboard */,
 				BB289D6A280215CD00D5D312 /* Info.plist */,
 				9D1C7EB328036FCF007330EB /* SearchViewController.swift */,
+				9D30AE4A2816310E0011E171 /* QueueViewController.swift */,
 			);
 			path = SessionShare;
 			sourceTree = "<group>";
@@ -314,10 +323,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9D30AE4D2816D9840011E171 /* SearchCellTableViewCell.swift in Sources */,
 				9D1C7EB428036FCF007330EB /* SearchViewController.swift in Sources */,
 				BB289D61280215CA00D5D312 /* LoginViewController.swift in Sources */,
+				9D30AE4B2816310E0011E171 /* QueueViewController.swift in Sources */,
 				BB289D5D280215CA00D5D312 /* AppDelegate.swift in Sources */,
 				BBDBD9FA28033C6F00CB4CEF /* joinViewController.swift in Sources */,
+				9D30AE4F2816E2310011E171 /* QueueSongTableViewCell.swift in Sources */,
 				BB289D5F280215CA00D5D312 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
